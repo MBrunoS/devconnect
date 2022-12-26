@@ -29,15 +29,6 @@
   line-height: 1.6;
 }
 
-.avatar {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border: 4px solid var(--gray-800);
-  outline: 2px solid var(--green-500);
-  box-sizing: initial;
-}
-
 .sidebar footer {
   border-top: 1px solid var(--gray-600);
   margin-top: 1.5rem;
