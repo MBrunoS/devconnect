@@ -1,3 +1,4 @@
+import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
 export function Post() {
@@ -5,7 +6,7 @@ export function Post() {
     <article className={styles.post}>
       <header className={styles.header}>
         <div className={styles.author}>
-          <img className={styles.avatar} src="https://github.com/mbrunos.png" />
+          <img className={styles.avatar} src="https://github.com/diego3g.png" />
           <div className={styles.authorInfo}>
             <strong>Diego Fernandes</strong>
             <span>Web Developer</span>
@@ -18,11 +19,11 @@ export function Post() {
       </header>
 
       <div className={styles.content}>
-        <p>Fala galeraa 👋</p>
+        <p>Hey guuys 👋</p>
 
         <p>
-          Acabei de subir mais um projeto no meu portifa. É um projeto que fiz
-          no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀
+          I just uploaded another project to my portfolio. It's a project I did
+          at NLW Return, a Rocketseat event. Project name is DoctorCare 🚀
         </p>
 
         <p>
@@ -30,10 +31,25 @@ export function Post() {
         </p>
 
         <p>
-          <a href="https://mbrunos.dev">#novoprojeto</a>{" "}
+          <a href="https://mbrunos.dev">#newproject</a>{" "}
           <a href="https://mbrunos.dev">#nlw</a>{" "}
           <a href="https://mbrunos.dev">#rocketseat</a>
         </p>
+      </div>
+
+      <form className={styles.commentForm}>
+        <strong>Leave your feedback</strong>
+
+        <textarea placeholder="Your comment" />
+
+        <footer>
+          <button type="submit">Publish</button>
+        </footer>
+      </form>
+
+      <div className={styles.commentList}>
+        <Comment />
+        <Comment />
       </div>
     </article>
   );
