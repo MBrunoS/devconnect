@@ -21,7 +21,12 @@ function App() {
         <Sidebar />
         <main>
           {posts.map((post) => (
-            <Post />
+            <Post
+              author={post.author}
+              content={post.content}
+              publishedAt={post.publishedAt}
+              key={post.id}
+            />
           ))}
         </main>
       </div>

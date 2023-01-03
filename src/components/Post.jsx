@@ -1,41 +1,43 @@
+import { format, formatDistanceToNow, parseISO } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
-export function Post() {
+export function Post({ author, content, publishedAt }) {
+  const date = parseISO(publishedAt);
+  const publishedDateFormatted = format(date, "d 'de' LLLL 'às' HH:mm'h'", {
+    locale: ptBR,
+  });
+  const publishedDateRelativeToNow = formatDistanceToNow(date, {
+    locale: ptBR,
+    addSuffix: true,
+  });
+
   return (
     <article className={styles.post}>
       <header className={styles.header}>
         <div className={styles.author}>
-          <Avatar src="https://github.com/diego3g.png" />
+          <Avatar src={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Diego Fernandes</strong>
-            <span>Web Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
-        <time title="26 de Dezembro de 2022" dateTime="2022-12-26 14:09:00">
-          Publicado há 1h
+        <time title={publishedDateFormatted} dateTime={publishedAt}>
+          {publishedDateRelativeToNow}
         </time>
       </header>
 
       <div className={styles.content}>
-        <p>Hey guuys 👋</p>
-
-        <p>
-          I just uploaded another project to my portfolio. It's a project I did
-          at NLW Return, a Rocketseat event. Project name is DoctorCare 🚀
-        </p>
-
-        <p>
-          👉 <a href="https://mbrunos.dev">jane.design/doctorcare</a>
-        </p>
-
-        <p>
-          <a href="https://mbrunos.dev">#newproject</a>{" "}
-          <a href="https://mbrunos.dev">#nlw</a>{" "}
-          <a href="https://mbrunos.dev">#rocketseat</a>
-        </p>
+        {content.map((item) => (
+          <p key={item.id}>
+            {item.type === "paragraph"
+              ? item.content
+              : item.type === "link" && <a href="">{item.content}</a>}
+          </p>
+        ))}
       </div>
 
       <form className={styles.commentForm}>
