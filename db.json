@@ -5,39 +5,39 @@
       "author": {
         "name": "Jane Doe",
         "avatarUrl": "https://i.pravatar.cc/200?u=1",
-        "role": "CTO @ Google",
-        "content": [
-          { "type": "paragraph", "content": "Hey guuys 👋" },
-          {
-            "type": "paragraph",
-            "content": "I just uploaded another project to my portfolio. It's a project I did at NLW Return, a Rocketseat event. Project name is DoctorCare 🚀"
-          },
-          {
-            "type": "link",
-            "content": "jane.design/doctorcare"
-          }
-        ]
+        "role": "CTO @ Google"
       },
-      "publishedAt": "'2023-01-03T15:05:57.232Z'"
+      "content": [
+        { "type": "paragraph", "content": "Hey guuys 👋" },
+        {
+          "type": "paragraph",
+          "content": "I just uploaded another project to my portfolio. It's a project I did at NLW Return, a Rocketseat event. Project name is DoctorCare 🚀"
+        },
+        {
+          "type": "link",
+          "content": "jane.design/doctorcare"
+        }
+      ],
+      "publishedAt": "2023-01-03T15:05:57.232Z"
     },
     {
       "id": 2,
       "author": {
         "name": "John Doe",
         "avatarUrl": "https://i.pravatar.cc/200?u=2",
-        "role": "Software Engineer @ Microsoft",
-        "content": [
-          { "type": "paragraph", "content": "Hey guuys 👋" },
-          {
-            "type": "paragraph",
-            "content": "I just uploaded another project to my portfolio. It's a project I did at NLW Return, a Rocketseat event. Project name is DoctorCare 🚀"
-          },
-          {
-            "type": "link",
-            "content": "jane.design/doctorcare"
-          }
-        ]
+        "role": "Software Engineer @ Microsoft"
       },
+      "content": [
+        { "type": "paragraph", "content": "Hey guuys 👋" },
+        {
+          "type": "paragraph",
+          "content": "I just uploaded another project to my portfolio. It's a project I did at NLW Return, a Rocketseat event. Project name is DoctorCare 🚀"
+        },
+        {
+          "type": "link",
+          "content": "jane.design/doctorcare"
+        }
+      ],
       "publishedAt": "2023-01-03T16:47:40.187Z"
     }
   ]
