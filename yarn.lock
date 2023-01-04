@@ -249,6 +249,20 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@markdoc/markdoc@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@markdoc/markdoc/-/markdoc-0.2.1.tgz#b5a63a692ef38b87ee572f1697bd6b4f18d7f6f5"
+  integrity sha512-3hr9pggv1h5Q4G50/T3MTnMsl3ejHbk0apVIwxU4x5CFCn+VQnvtJh1vgKZPvMwA+ys67SDUiZz9GD9ccg6LpQ==
+  optionalDependencies:
+    "@types/markdown-it" "12.2.3"
+
+"@markdoc/next.js@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@markdoc/next.js/-/next.js-0.2.1.tgz#6217d5c840b388f4166a3aae682096d172f4b473"
+  integrity sha512-SJ+Pe4uJdD0vasEhsMQ0eVBJ4E1opoxlfVtskQ6UzN5+uh4CLoH6RbohL4upV3Snk41s5LfrEeQh/QCK3+qr/A==
+  dependencies:
+    js-yaml "^4.1.0"
+
 "@next/env@13.1.1":
   version "13.1.1"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-13.1.1.tgz#6ff26488dc7674ef2bfdd1ca28fe43eed1113bea"
@@ -343,6 +357,24 @@
   dependencies:
     tslib "^2.4.0"
 
+"@types/linkify-it@*":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@types/linkify-it/-/linkify-it-3.0.2.tgz#fd2cd2edbaa7eaac7e7f3c1748b52a19143846c9"
+  integrity sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==
+
+"@types/markdown-it@12.2.3":
+  version "12.2.3"
+  resolved "https://registry.yarnpkg.com/@types/markdown-it/-/markdown-it-12.2.3.tgz#0d6f6e5e413f8daaa26522904597be3d6cd93b51"
+  integrity sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==
+  dependencies:
+    "@types/linkify-it" "*"
+    "@types/mdurl" "*"
+
+"@types/mdurl@*":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@types/mdurl/-/mdurl-1.0.2.tgz#e2ce9d83a613bacf284c7be7d491945e39e1f8e9"
+  integrity sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==
+
 "@types/prop-types@*":
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
@@ -386,6 +418,11 @@ ansi-styles@^3.2.1:
   integrity sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==
   dependencies:
     color-convert "^1.9.0"
+
+argparse@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
+  integrity sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==
 
 browserslist@^4.21.3:
   version "4.21.4"
@@ -484,6 +521,13 @@ has-flag@^3.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
+
+js-yaml@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
+  integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
+  dependencies:
+    argparse "^2.0.1"
 
 jsesc@^2.5.1:
   version "2.5.2"

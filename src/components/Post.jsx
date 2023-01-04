@@ -1,5 +1,7 @@
+import Markdoc from "@markdoc/markdoc";
 import { format, formatDistanceToNow, parseISO } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
+import React from "react";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
@@ -13,6 +15,9 @@ export function Post({ author, content, publishedAt }) {
     locale: ptBR,
     addSuffix: true,
   });
+
+  const ast = Markdoc.parse(content);
+  const transformedContent = Markdoc.transform(ast);
 
   return (
     <article className={styles.post}>
@@ -31,7 +36,9 @@ export function Post({ author, content, publishedAt }) {
       </header>
 
       <div className={styles.content}>
-        <p>{content}</p>
+        <div style={{ whiteSpace: "pre-line" }}>
+          {Markdoc.renderers.react(transformedContent, React)}
+        </div>
       </div>
 
       <form className={styles.commentForm}>

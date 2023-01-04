@@ -2,13 +2,14 @@
   "name": "devconnect",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@markdoc/markdoc": "^0.2.1",
+    "@markdoc/next.js": "^0.2.1",
     "@prisma/client": "^4.8.0",
     "date-fns": "^2.29.3",
     "next": "^13.1.1",
