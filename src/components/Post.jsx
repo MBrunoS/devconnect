@@ -31,13 +31,7 @@ export function Post({ author, content, publishedAt }) {
       </header>
 
       <div className={styles.content}>
-        {content.map((item) => (
-          <p key={item.id}>
-            {item.type === "paragraph"
-              ? item.content
-              : item.type === "link" && <a href="">{item.content}</a>}
-          </p>
-        ))}
+        <p>{content}</p>
       </div>
 
       <form className={styles.commentForm}>
