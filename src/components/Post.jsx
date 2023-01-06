@@ -1,23 +1,32 @@
 import Markdoc from "@markdoc/markdoc";
-import { format, formatDistanceToNow, parseISO } from "date-fns";
-import ptBR from "date-fns/locale/pt-BR";
-import React from "react";
+import React, { useState } from "react";
+import { useFormattedDates } from "../hooks/useFormattedDates";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
+import { CommentForm } from "./CommentForm";
 import styles from "./Post.module.css";
 
-export function Post({ author, content, publishedAt }) {
-  const date = parseISO(publishedAt);
-  const publishedDateFormatted = format(date, "d 'de' LLLL 'às' HH:mm'h'", {
-    locale: ptBR,
-  });
-  const publishedDateRelativeToNow = formatDistanceToNow(date, {
-    locale: ptBR,
-    addSuffix: true,
-  });
+export function Post({ id, author, content, publishedAt, commentList }) {
+  const [comments, setComments] = useState(commentList);
+  const { formatted, relativeToNow } = useFormattedDates(publishedAt);
 
   const ast = Markdoc.parse(content);
   const transformedContent = Markdoc.transform(ast);
+
+  async function handleCreateComment(text, submit) {
+    const comment = await submit(
+      {
+        content: text,
+        post: id,
+        author: "clcgykwsn0002v7c4xlb9lszw",
+      },
+      "Comentário enviado"
+    );
+
+    if (comment) {
+      setComments([...comments, comment]);
+    }
+  }
 
   return (
     <article className={styles.post}>
@@ -30,8 +39,8 @@ export function Post({ author, content, publishedAt }) {
           </div>
         </div>
 
-        <time title={publishedDateFormatted} dateTime={publishedAt}>
-          {publishedDateRelativeToNow}
+        <time title={formatted} dateTime={publishedAt}>
+          {relativeToNow}
         </time>
       </header>
 
@@ -41,19 +50,17 @@ export function Post({ author, content, publishedAt }) {
         </div>
       </div>
 
-      <form className={styles.commentForm}>
-        <strong>Leave your feedback</strong>
-
-        <textarea placeholder="Your comment" />
-
-        <footer>
-          <button type="submit">Publish</button>
-        </footer>
-      </form>
+      <CommentForm postId={id} handleCreateComment={handleCreateComment} />
 
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
+        {comments.map((comment) => (
+          <Comment
+            content={comment.content}
+            author={comment.author}
+            publishedAt={comment.publishedAt}
+            key={comment.id}
+          />
+        ))}
       </div>
     </article>
   );
