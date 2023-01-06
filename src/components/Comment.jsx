@@ -1,22 +1,21 @@
 import { ThumbsUp, Trash } from "phosphor-react";
+import { useFormattedDates } from "../hooks/useFormattedDates";
 import { Avatar } from "./Avatar";
 import styles from "./Comment.module.css";
 
-export function Comment() {
+export function Comment({ content, author, publishedAt }) {
+  const { formatted, relativeToNow } = useFormattedDates(publishedAt);
   return (
     <div className={styles.comment}>
-      <Avatar src="https://github.com/mbrunos.png" hasBorder={false} />
+      <Avatar src={author.avatarUrl} hasBorder={false} />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
-              <strong>Maurício Bruno</strong>
-              <time
-                title="26 de Dezembro às 15h30"
-                dateTime="2022-12-26 15:30:00"
-              >
-                Cerca de 1h atrás
+              <strong>{author.name}</strong>
+              <time title={formatted} dateTime={publishedAt}>
+                {relativeToNow}
               </time>
             </div>
 
@@ -25,7 +24,7 @@ export function Comment() {
             </button>
           </header>
 
-          <p>Very well!!</p>
+          <p>{content}</p>
         </div>
 
         <footer>
