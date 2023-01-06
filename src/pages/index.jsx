@@ -1,35 +1,37 @@
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
-import { Post } from "../components/Post";
 import { prisma } from "../services/prisma";
+import { SWRConfig } from "swr";
 
 import styles from "./index.module.css";
+import { Posts } from "../components/Posts";
 
-export default function App({ posts }) {
+export default function App({ fallback }) {
   return (
-    <>
+    <SWRConfig value={{ fallback }}>
       <Header />
 
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          {posts.map((post) => (
-            <Post
-              author={post.author}
-              content={post.content}
-              publishedAt={post.publishedAt}
-              key={post.id}
-            />
-          ))}
+          <Posts />
         </main>
       </div>
-    </>
+    </SWRConfig>
   );
 }
 
 export async function getServerSideProps() {
-  const posts = await prisma.post.findMany({ include: { author: true } });
+  const posts = await prisma.post.findMany({
+    include: {
+      author: true,
+      comments: {
+        include: { author: { select: { name: true, avatarUrl: true } } },
+      },
+    },
+  });
+
   return {
-    props: { posts: JSON.parse(JSON.stringify(posts)) },
+    props: { fallback: { posts: JSON.parse(JSON.stringify(posts)) } },
   };
 }
