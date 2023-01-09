@@ -2,9 +2,11 @@ import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import { prisma } from "../services/prisma";
 import { SWRConfig } from "swr";
+import { PostsList } from "../components/PostsList";
+import { PostForm } from "../components/PostForm";
+import { PostsProvider } from "../context/PostsContext";
 
 import styles from "./index.module.css";
-import { Posts } from "../components/Posts";
 
 export default function App({ fallback }) {
   return (
@@ -14,7 +16,10 @@ export default function App({ fallback }) {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Posts />
+          <PostsProvider>
+            <PostForm />
+            <PostsList />
+          </PostsProvider>
         </main>
       </div>
     </SWRConfig>

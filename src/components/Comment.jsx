@@ -1,15 +1,18 @@
 import { ThumbsUp, Trash } from "phosphor-react";
+import { useContext } from "react";
+import { PostsContext } from "../context/PostsContext";
 import { useFormattedDates } from "../hooks/useFormattedDates";
 import { api } from "../services/api";
 import { Avatar } from "./Avatar";
 import styles from "./Comment.module.css";
 
-export function Comment({ id, content, author, publishedAt, onUpdate }) {
+export function Comment({ id, content, author, publishedAt }) {
   const { formatted, relativeToNow } = useFormattedDates(publishedAt);
+  const { fetchPosts } = useContext(PostsContext);
 
   function handleCommentDeletion() {
     api.delete("comments", { data: { id } });
-    onUpdate();
+    fetchPosts();
   }
 
   return (

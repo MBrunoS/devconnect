@@ -1,20 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { PostsContext } from "../context/PostsContext";
 import { useFormSubmission } from "../hooks/useFormSubmission";
 
 import styles from "./CommentForm.module.css";
 
-export function CommentForm({ handleCreateComment }) {
+export function CommentForm({ postId }) {
   const [newCommentText, setNewCommentText] = useState("");
   const { isSubmitting, submit } = useFormSubmission("comments");
+  const { fetchPosts } = useContext(PostsContext);
 
   function handleNewCommentChange(event) {
     setNewCommentText(event.target.value);
   }
 
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
-    handleCreateComment(newCommentText, submit);
+
+    await submit(
+      {
+        content: newCommentText,
+        post: postId,
+        author: "clcgykwsn0002v7c4xlb9lszw",
+      },
+      "Comentário enviado"
+    );
+
     setNewCommentText("");
+    fetchPosts();
   }
 
   return (
@@ -28,9 +40,11 @@ export function CommentForm({ handleCreateComment }) {
       />
 
       <footer>
-        <button type="submit" disabled={isSubmitting}>
-          Publish
-        </button>
+        {newCommentText.length > 0 && (
+          <button type="submit" disabled={isSubmitting}>
+            Comment
+          </button>
+        )}
       </footer>
     </form>
   );

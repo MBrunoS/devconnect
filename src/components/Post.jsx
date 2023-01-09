@@ -6,31 +6,11 @@ import { Comment } from "./Comment";
 import { CommentForm } from "./CommentForm";
 import styles from "./Post.module.css";
 
-export function Post({
-  id,
-  author,
-  content,
-  publishedAt,
-  commentList,
-  onUpdate,
-}) {
+export function Post({ id, author, content, publishedAt, commentList }) {
   const { formatted, relativeToNow } = useFormattedDates(publishedAt);
 
   const ast = Markdoc.parse(content);
   const transformedContent = Markdoc.transform(ast);
-
-  async function handleCreateComment(text, submit) {
-    await submit(
-      {
-        content: text,
-        post: id,
-        author: "clcgykwsn0002v7c4xlb9lszw",
-      },
-      "Comentário enviado"
-    );
-
-    onUpdate();
-  }
 
   return (
     <article className={styles.post}>
@@ -54,7 +34,7 @@ export function Post({
         </div>
       </div>
 
-      <CommentForm postId={id} handleCreateComment={handleCreateComment} />
+      <CommentForm postId={id} />
 
       <div className={styles.commentList}>
         {commentList.map((comment) => (
@@ -63,7 +43,6 @@ export function Post({
             content={comment.content}
             author={comment.author}
             publishedAt={comment.publishedAt}
-            onUpdate={onUpdate}
             key={comment.id}
           />
         ))}
