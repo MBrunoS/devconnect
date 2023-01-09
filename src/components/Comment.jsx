@@ -6,12 +6,17 @@ import { api } from "../services/api";
 import { Avatar } from "./Avatar";
 import styles from "./Comment.module.css";
 
-export function Comment({ id, content, author, publishedAt }) {
+export function Comment({ id, content, author, publishedAt, applauses }) {
   const { formatted, relativeToNow } = useFormattedDates(publishedAt);
   const { fetchPosts } = useContext(PostsContext);
 
   function handleCommentDeletion() {
     api.delete("comments", { data: { id } });
+    fetchPosts();
+  }
+
+  function handleApplause() {
+    api.post("applauses", { id });
     fetchPosts();
   }
 
@@ -38,9 +43,9 @@ export function Comment({ id, content, author, publishedAt }) {
         </div>
 
         <footer>
-          <button>
+          <button onClick={handleApplause}>
             <ThumbsUp />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{applauses}</span>
           </button>
         </footer>
       </div>

@@ -43,6 +43,7 @@ export function Post({ id, author, content, publishedAt, commentList }) {
             content={comment.content}
             author={comment.author}
             publishedAt={comment.publishedAt}
+            applauses={comment.applauses}
             key={comment.id}
           />
         ))}
