@@ -28,6 +28,8 @@ export function PostForm() {
     setNewPostText("");
   }
 
+  const isNewPostEmpty = newPostText.length === 0;
+
   return (
     <form className={styles.postForm} onSubmit={submitForm}>
       <strong>What do you wanna say?</strong>
@@ -36,10 +38,11 @@ export function PostForm() {
         placeholder="You can write Markdown here to create your post!"
         value={newPostText}
         onChange={handleNewPostChange}
+        required
       />
 
       <footer>
-        <button type="submit" disabled={isSubmitting}>
+        <button type="submit" disabled={isNewPostEmpty || isSubmitting}>
           Publish
         </button>
       </footer>

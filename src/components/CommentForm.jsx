@@ -29,6 +29,8 @@ export function CommentForm({ postId }) {
     fetchPosts();
   }
 
+  const isNewCommentNotEmpty = newCommentText.length > 0;
+
   return (
     <form className={styles.commentForm} onSubmit={submitForm}>
       <strong>Leave your feedback</strong>
@@ -37,10 +39,11 @@ export function CommentForm({ postId }) {
         placeholder="Your comment"
         value={newCommentText}
         onChange={handleNewCommentChange}
+        required
       />
 
       <footer>
-        {newCommentText.length > 0 && (
+        {isNewCommentNotEmpty && (
           <button type="submit" disabled={isSubmitting}>
             Comment
           </button>
