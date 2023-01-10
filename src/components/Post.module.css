@@ -20,12 +20,12 @@
 
 .content p a {
   font-weight: bold;
-  color: var(--green-500);
+  color: var(--brand-500);
   text-decoration: none;
 }
 
 .content p a:hover {
-  color: var(--green-300);
+  color: var(--brand-300);
 }
 
 .header {
@@ -91,7 +91,7 @@
   margin-top: 1rem;
   border-radius: 8px;
   border: 0;
-  background-color: var(--green-500);
+  background-color: var(--brand-500);
   color: var(--white);
   font-weight: bold;
   cursor: pointer;
@@ -99,7 +99,7 @@
 }
 
 .commentForm button[type="submit"]:hover {
-  background-color: var(--green-300);
+  background-color: var(--brand-300);
 }
 
 .commentForm > footer {

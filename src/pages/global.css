@@ -1,22 +1,22 @@
 :root {
   --white: #ffffff;
-  --gray-100: #e1e1e6;
-  --gray-300: #c4c4cc;
-  --gray-400: #8d8d99;
-  --gray-600: #323238;
-  --gray-700: #29292e;
-  --gray-800: #202024;
-  --gray-900: #121214;
+  --gray-100: #edf2f7;
+  --gray-300: #cbd5e0;
+  --gray-400: #a0aec0;
+  --gray-600: #4a5568;
+  --gray-700: #2d3748;
+  --gray-800: #1a202c;
+  --gray-900: #171923;
 
-  --green-300: #00b37e;
-  --green-500: #00875f;
+  --brand-300: #89bad2;
+  --brand-500: #4793b8;
 
   --red-500: #f75a68;
 }
 
 :focus {
   outline: transparent;
-  box-shadow: 0 0 0 2px var(--green-500);
+  box-shadow: 0 0 0 2px var(--brand-500);
 }
 
 * {

@@ -37,8 +37,8 @@
 
 .sidebar footer a {
   background: transparent;
-  color: var(--green-500);
-  border: 1px solid var(--green-500);
+  color: var(--brand-500);
+  border: 1px solid var(--brand-500);
   border-radius: 8px;
   height: 3.125rem;
   padding: 0 1.5rem;
@@ -52,6 +52,6 @@
 }
 
 .sidebar footer a:hover {
-  background-color: var(--green-500);
+  background-color: var(--brand-500);
   color: var(--white);
 }

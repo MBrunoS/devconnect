@@ -23,7 +23,7 @@
   margin-top: 1rem;
   border-radius: 8px;
   border: 0;
-  background-color: var(--green-500);
+  background-color: var(--brand-500);
   color: var(--white);
   font-weight: bold;
   cursor: pointer;
@@ -31,7 +31,7 @@
 }
 
 .postForm button[type="submit"]:not(:disabled):hover {
-  background-color: var(--green-300);
+  background-color: var(--brand-300);
 }
 
 .postForm button[type="submit"]:disabled {

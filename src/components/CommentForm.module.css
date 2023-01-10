@@ -28,7 +28,7 @@
   margin-top: 1rem;
   border-radius: 8px;
   border: 0;
-  background-color: var(--green-500);
+  background-color: var(--brand-500);
   color: var(--white);
   font-weight: bold;
   font-size: 0.875rem;
@@ -37,5 +37,5 @@
 }
 
 .commentForm button[type="submit"]:hover {
-  background-color: var(--green-300);
+  background-color: var(--brand-300);
 }
