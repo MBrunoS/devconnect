@@ -1,19 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, FormEvent, ChangeEvent } from "react";
 import { PostsContext } from "../context/PostsContext";
 import { useFormSubmission } from "../hooks/useFormSubmission";
 
 import styles from "./CommentForm.module.css";
 
-export function CommentForm({ postId }) {
+interface CommentFormProps {
+  postId: string;
+}
+
+export function CommentForm({ postId }: CommentFormProps) {
   const [newCommentText, setNewCommentText] = useState("");
   const { isSubmitting, submit } = useFormSubmission("comments");
   const { fetchPosts } = useContext(PostsContext);
 
-  function handleNewCommentChange(event) {
-    setNewCommentText(event.target.value);
+  function handleNewCommentChange(e: ChangeEvent<HTMLTextAreaElement>) {
+    setNewCommentText(e.target.value);
   }
 
-  async function submitForm(e) {
+  async function submitForm(e: FormEvent) {
     e.preventDefault();
 
     await submit(

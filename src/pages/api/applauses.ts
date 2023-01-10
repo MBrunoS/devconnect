@@ -1,6 +1,10 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../services/prisma";
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { method } = req;
 
   if (method === "POST") {
@@ -14,7 +18,7 @@ export default async function handler(req, res) {
         },
       });
 
-      return res.status(200).send();
+      return res.status(200).end();
     } catch (e) {
       console.error("Request error", e);
 

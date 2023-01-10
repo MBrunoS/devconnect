@@ -1,4 +1,6 @@
 import Markdoc from "@markdoc/markdoc";
+import { User } from "@prisma/client";
+import { Comment as CommentType } from "../types/Comment";
 import React from "react";
 import { useFormattedDates } from "../hooks/useFormattedDates";
 import { Avatar } from "./Avatar";
@@ -6,7 +8,21 @@ import { Comment } from "./Comment";
 import { CommentForm } from "./CommentForm";
 import styles from "./Post.module.css";
 
-export function Post({ id, author, content, publishedAt, commentList }) {
+interface PostProps {
+  id: string;
+  author: User;
+  content: string;
+  publishedAt: string;
+  commentList: CommentType[];
+}
+
+export function Post({
+  id,
+  author,
+  content,
+  publishedAt,
+  commentList,
+}: PostProps) {
   const { formatted, relativeToNow } = useFormattedDates(publishedAt);
 
   const ast = Markdoc.parse(content);

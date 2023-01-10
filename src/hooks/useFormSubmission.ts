@@ -3,9 +3,9 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { api } from "../services/api";
 
-export const useFormSubmission = (apiUrl) => {
+export const useFormSubmission = (apiUrl: string) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const submit = async (data, successMsg) => {
+  const submit = async (data: any, successMsg: string) => {
     setIsSubmitting(true);
     try {
       const response = await api.post(apiUrl, data);

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { PostsContext } from "../context/PostsContext";
 import { useFormSubmission } from "../hooks/useFormSubmission";
 
@@ -9,11 +9,11 @@ export function PostForm() {
   const { isSubmitting, submit } = useFormSubmission("posts");
   const { fetchPosts } = useContext(PostsContext);
 
-  function handleNewPostChange(event) {
-    setNewPostText(event.target.value);
+  function handleNewPostChange(e: ChangeEvent<HTMLTextAreaElement>) {
+    setNewPostText(e.target.value);
   }
 
-  async function submitForm(e) {
+  async function submitForm(e: FormEvent) {
     e.preventDefault();
 
     await submit(

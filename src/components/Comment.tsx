@@ -1,3 +1,4 @@
+import { User } from "@prisma/client";
 import { ThumbsUp, Trash } from "phosphor-react";
 import { useContext } from "react";
 import { PostsContext } from "../context/PostsContext";
@@ -6,7 +7,21 @@ import { api } from "../services/api";
 import { Avatar } from "./Avatar";
 import styles from "./Comment.module.css";
 
-export function Comment({ id, content, author, publishedAt, applauses }) {
+interface CommentProps {
+  id: string;
+  content: string;
+  author: User;
+  publishedAt: string;
+  applauses: number;
+}
+
+export function Comment({
+  id,
+  content,
+  author,
+  publishedAt,
+  applauses,
+}: CommentProps) {
   const { formatted, relativeToNow } = useFormattedDates(publishedAt);
   const { fetchPosts } = useContext(PostsContext);
 
