@@ -1,13 +1,16 @@
 import { PencilLine, SignOut } from "phosphor-react";
 import { Avatar } from "./Avatar";
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 import styles from "./Sidebar.module.css";
+import { Loading } from "./Loading";
 
 export function Sidebar() {
-  const { data: session } = useSession();
+  const { user } = useContext(UserContext);
 
-  return (
+  return user ? (
     <aside className={styles.sidebar}>
       <img
         className={styles.cover}
@@ -15,10 +18,10 @@ export function Sidebar() {
       />
 
       <div className={styles.profile}>
-        <Avatar src={session?.user.image} />
+        <Avatar src={user?.image} />
 
-        <strong>{session?.user.name}</strong>
-        <span>{session?.user.role || session?.user.email}</span>
+        <strong>{user?.name}</strong>
+        <span>{user?.role || user?.email}</span>
       </div>
 
       <footer>
@@ -32,5 +35,9 @@ export function Sidebar() {
         </button>
       </footer>
     </aside>
+  ) : (
+    <div className={styles.sidebarLoading}>
+      <Loading />
+    </div>
   );
 }

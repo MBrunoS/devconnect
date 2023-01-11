@@ -74,3 +74,10 @@
 .signOutBtn:hover {
   color: var(--white);
 }
+
+.sidebarLoading {
+  display: flex;
+  justify-content: center;
+  background-color: var(--gray-800);
+  border-radius: 8px;
+}

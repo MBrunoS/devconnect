@@ -5,19 +5,13 @@ import { SWRConfig } from "swr";
 import { PostsList } from "../components/PostsList";
 import { PostForm } from "../components/PostForm";
 import { PostsProvider } from "../context/PostsContext";
-import { useSession } from "next-auth/react";
-
-import styles from "./index.module.css";
 import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
 import { GetServerSideProps } from "next";
 
-export default function App({ fallback }) {
-  const { data: session } = useSession();
+import styles from "./index.module.css";
 
-  if (session) {
-    console.log(session);
-  }
+export default function App({ fallback }) {
   return (
     <SWRConfig value={{ fallback }}>
       <Header />
@@ -55,7 +49,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     include: {
       author: true,
       comments: {
-        include: { author: { select: { name: true, image: true } } },
+        include: { author: { select: { id: true, name: true, image: true } } },
       },
     },
   });

@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { PostsContext } from "../context/PostsContext";
+import { UserContext } from "../context/UserContext";
 import { useFormSubmission } from "../hooks/useFormSubmission";
 
 import styles from "./PostForm.module.css";
@@ -8,6 +9,7 @@ export function PostForm() {
   const [newPostText, setNewPostText] = useState("");
   const { isSubmitting, submit } = useFormSubmission("posts");
   const { fetchPosts } = useContext(PostsContext);
+  const { user } = useContext(UserContext);
 
   function handleNewPostChange(e: ChangeEvent<HTMLTextAreaElement>) {
     setNewPostText(e.target.value);
@@ -19,7 +21,7 @@ export function PostForm() {
     await submit(
       {
         content: newPostText,
-        author: "clcgykwsn0002v7c4xlb9lszw",
+        author: user.id,
       },
       "Comentário enviado"
     );

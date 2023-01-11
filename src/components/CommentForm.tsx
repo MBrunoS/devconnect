@@ -1,5 +1,6 @@
 import React, { useContext, useState, FormEvent, ChangeEvent } from "react";
 import { PostsContext } from "../context/PostsContext";
+import { UserContext } from "../context/UserContext";
 import { useFormSubmission } from "../hooks/useFormSubmission";
 
 import styles from "./CommentForm.module.css";
@@ -12,6 +13,7 @@ export function CommentForm({ postId }: CommentFormProps) {
   const [newCommentText, setNewCommentText] = useState("");
   const { isSubmitting, submit } = useFormSubmission("comments");
   const { fetchPosts } = useContext(PostsContext);
+  const { user } = useContext(UserContext);
 
   function handleNewCommentChange(e: ChangeEvent<HTMLTextAreaElement>) {
     setNewCommentText(e.target.value);
@@ -24,7 +26,7 @@ export function CommentForm({ postId }: CommentFormProps) {
       {
         content: newCommentText,
         post: postId,
-        author: "clcgykwsn0002v7c4xlb9lszw",
+        author: user.id,
       },
       "Comentário enviado"
     );

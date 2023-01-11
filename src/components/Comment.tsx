@@ -2,6 +2,7 @@ import { User } from "@prisma/client";
 import { ThumbsUp, Trash } from "phosphor-react";
 import { useContext } from "react";
 import { PostsContext } from "../context/PostsContext";
+import { UserContext } from "../context/UserContext";
 import { useFormattedDates } from "../hooks/useFormattedDates";
 import { api } from "../services/api";
 import { Avatar } from "./Avatar";
@@ -24,6 +25,7 @@ export function Comment({
 }: CommentProps) {
   const { formatted, relativeToNow } = useFormattedDates(publishedAt);
   const { fetchPosts } = useContext(PostsContext);
+  const { user } = useContext(UserContext);
 
   function handleCommentDeletion() {
     api.delete("comments", { data: { id } });
@@ -49,9 +51,11 @@ export function Comment({
               </time>
             </div>
 
-            <button title="Delete comment" onClick={handleCommentDeletion}>
-              <Trash size={24} />
-            </button>
+            {user?.id === author.id && (
+              <button title="Delete comment" onClick={handleCommentDeletion}>
+                <Trash size={24} />
+              </button>
+            )}
           </header>
 
           <p>{content}</p>

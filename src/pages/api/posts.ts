@@ -14,7 +14,9 @@ export default async function handler(
       include: {
         author: true,
         comments: {
-          include: { author: { select: { name: true, image: true } } },
+          include: {
+            author: { select: { id: true, name: true, image: true } },
+          },
         },
       },
       orderBy: {
