@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import { unstable_getServerSession } from "next-auth";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { GithubLogo } from "phosphor-react";
 import { authOptions } from "./api/auth/[...nextauth]";

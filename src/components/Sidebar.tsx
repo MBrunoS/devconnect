@@ -1,8 +1,12 @@
-import { PencilLine } from "phosphor-react";
+import { PencilLine, SignOut } from "phosphor-react";
 import { Avatar } from "./Avatar";
+import { signOut, useSession } from "next-auth/react";
+
 import styles from "./Sidebar.module.css";
 
 export function Sidebar() {
+  const { data: session } = useSession();
+
   return (
     <aside className={styles.sidebar}>
       <img
@@ -11,17 +15,21 @@ export function Sidebar() {
       />
 
       <div className={styles.profile}>
-        <Avatar src="https://github.com/mbrunos.png" />
+        <Avatar src={session?.user.image} />
 
-        <strong>Maurício Bruno</strong>
-        <span>Web Developer</span>
+        <strong>{session?.user.name}</strong>
+        <span>{session?.user.role || session?.user.email}</span>
       </div>
 
       <footer>
-        <a href="#">
+        <button className={styles.editProfileBtn}>
           <PencilLine size={20} />
           Edit your profile
-        </a>
+        </button>
+
+        <button onClick={() => signOut()} className={styles.signOutBtn}>
+          <SignOut size={20} /> Sign Out
+        </button>
       </footer>
     </aside>
   );

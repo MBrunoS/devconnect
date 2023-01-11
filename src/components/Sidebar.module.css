@@ -33,12 +33,12 @@
   border-top: 1px solid var(--gray-600);
   margin-top: 1.5rem;
   padding: 1.5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.sidebar footer a {
+.sidebar footer button {
   background: transparent;
-  color: var(--brand-500);
-  border: 1px solid var(--brand-500);
   border-radius: 8px;
   height: 3.125rem;
   padding: 0 1.5rem;
@@ -51,7 +51,26 @@
   transition: color 0.1s, background-color 0.1s;
 }
 
-.sidebar footer a:hover {
+.sidebar footer button:hover {
+  cursor: pointer;
+}
+
+.editProfileBtn {
+  border: 1px solid var(--brand-500);
+  color: var(--brand-500);
+}
+
+.editProfileBtn:hover {
   background-color: var(--brand-500);
+  color: var(--white);
+}
+
+.signOutBtn {
+  border: 0;
+  color: var(--brand-500);
+  margin-top: 0.5rem;
+}
+
+.signOutBtn:hover {
   color: var(--white);
 }

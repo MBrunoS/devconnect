@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
 import { prisma } from "../services/prisma";
@@ -56,7 +55,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     include: {
       author: true,
       comments: {
-        include: { author: { select: { name: true, avatarUrl: true } } },
+        include: { author: { select: { name: true, image: true } } },
       },
     },
   });

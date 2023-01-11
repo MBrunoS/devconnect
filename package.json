@@ -10,6 +10,7 @@
   "dependencies": {
     "@markdoc/markdoc": "^0.2.1",
     "@markdoc/next.js": "^0.2.1",
+    "@next-auth/prisma-adapter": "^1.0.5",
     "@prisma/client": "^4.8.0",
     "axios": "^1.2.2",
     "date-fns": "^2.29.3",
