@@ -41,6 +41,8 @@ model User {
   sessions      Session[]
   posts         Post[]
   Comment       Comment[]
+
+  @@index(fields: [email])
 }
 
 model Account {
