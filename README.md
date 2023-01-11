@@ -1,12 +1,4 @@
-<div style="display: flex; align-items: center; gap: 1rem; justify-content: center;">
-
-<img src="src/assets/dev-connect-logo.svg" width="80" />
-
-# DevConnect
-
-</div>
-
----
+![DevConnect](src/assets//dev-connect-logo.png "DevConnect Logo")
 
 > This project is intended to be a template for social media apps using Next.js. Use it to learn or to fit your own needs.
 
