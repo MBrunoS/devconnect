@@ -6,7 +6,7 @@ import styles from "./Header.module.css";
 export function Header() {
   return (
     <header className={styles.header}>
-      <Image src={logo} alt="Logo do Ignite" />
+      <Image src={logo} alt="Logo do DevConnect" />
       <h1>DevConnect</h1>
     </header>
   );

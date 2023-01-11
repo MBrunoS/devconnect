@@ -1,0 +1,45 @@
+.loginPage {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.loginPage section {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem 4.5rem;
+  background-color: var(--gray-700);
+  border-radius: 8px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img {
+  height: 3rem;
+  width: auto;
+}
+
+.loginPage button {
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 0;
+  background-color: var(--brand-500);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.loginPage button:hover {
+  background-color: var(--brand-300);
+}

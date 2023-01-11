@@ -1,4 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { unstable_getServerSession } from "next-auth/next";
+import { authOptions } from "./auth/[...nextauth]";
 import { prisma } from "../../services/prisma";
 
 export default async function handler(
@@ -22,6 +24,13 @@ export default async function handler(
 
     return res.status(200).json(posts);
   } else if (method === "POST") {
+    const session = await unstable_getServerSession(req, res, authOptions);
+    if (!session) {
+      res.send({
+        error: "You must be signed in to perform this action.",
+      });
+    }
+
     try {
       const post = await prisma.post.create({
         data: {

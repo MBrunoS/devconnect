@@ -1,10 +1,19 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { unstable_getServerSession } from "next-auth";
+import { authOptions } from "./auth/[...nextauth]";
 import { prisma } from "../../services/prisma";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  const session = await unstable_getServerSession(req, res, authOptions);
+  if (!session) {
+    res.send({
+      error: "You must be signed in to perform this action.",
+    });
+  }
+
   const { method } = req;
 
   if (method === "POST") {
