@@ -7,21 +7,28 @@ import { authOptions } from "./api/auth/[...nextauth]";
 
 import logo from "../assets/dev-connect-logo.svg";
 import styles from "./login.module.css";
+import Head from "next/head";
 
 export default function LoginPage() {
   return (
-    <main className={styles.loginPage}>
-      <section>
-        <header className={styles.logo}>
-          <Image src={logo} alt="Logo do DevConnect" />
-          <h1>DevConnect</h1>
-        </header>
+    <>
+      <Head>
+        <title>DevConnect - Login</title>
+      </Head>
 
-        <button onClick={() => signIn("github")}>
-          <GithubLogo size={20} /> Sign in with Github
-        </button>
-      </section>
-    </main>
+      <main className={styles.loginPage}>
+        <section>
+          <header className={styles.logo}>
+            <Image src={logo} alt="Logo do DevConnect" />
+            <h1>DevConnect</h1>
+          </header>
+
+          <button onClick={() => signIn("github")}>
+            <GithubLogo size={20} /> Sign in with Github
+          </button>
+        </section>
+      </main>
+    </>
   );
 }
 

@@ -10,22 +10,29 @@ import { authOptions } from "./api/auth/[...nextauth]";
 import { GetServerSideProps } from "next";
 
 import styles from "./index.module.css";
+import Head from "next/head";
 
 export default function App({ fallback }) {
   return (
-    <SWRConfig value={{ fallback }}>
-      <Header />
+    <>
+      <Head>
+        <title>DevConnect</title>
+      </Head>
 
-      <div className={styles.wrapper}>
-        <Sidebar />
-        <main>
-          <PostsProvider>
-            <PostForm />
-            <PostsList />
-          </PostsProvider>
-        </main>
-      </div>
-    </SWRConfig>
+      <SWRConfig value={{ fallback }}>
+        <Header />
+
+        <div className={styles.wrapper}>
+          <Sidebar />
+          <main>
+            <PostsProvider>
+              <PostForm />
+              <PostsList />
+            </PostsProvider>
+          </main>
+        </div>
+      </SWRConfig>
+    </>
   );
 }
 
