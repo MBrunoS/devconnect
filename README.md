@@ -18,7 +18,7 @@
 
 You can see a live version of this app [here](https://devconnect.mbrunos.dev/)
 
-![DevConnect screenshot](src/assets/screen.png "Screenshot of the app")
+![DevConnect recording](src/assets/app-recording.gif "Screen recording of the app")
 
 ## Running the project
 
