@@ -5,6 +5,7 @@ import { useLoggedInUser } from "../hooks/useLoggedInUser";
 
 interface IUserContext {
   user: User;
+  updateUser: () => void;
 }
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
@@ -12,11 +13,17 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 export function UserProvider({ children }) {
   const [user, setUser] = useState<User>();
 
-  useEffect(() => {
+  function updateUser() {
     useLoggedInUser().then((user) => setUser(user));
+  }
+
+  useEffect(() => {
+    updateUser();
   }, []);
 
   return (
-    <UserContext.Provider value={{ user }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, updateUser }}>
+      {children}
+    </UserContext.Provider>
   );
 }

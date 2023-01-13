@@ -55,16 +55,6 @@
   cursor: pointer;
 }
 
-.editProfileBtn {
-  border: 1px solid var(--brand-500);
-  color: var(--brand-500);
-}
-
-.editProfileBtn:hover {
-  background-color: var(--brand-500);
-  color: var(--white);
-}
-
 .signOutBtn {
   border: 0;
   color: var(--brand-500);

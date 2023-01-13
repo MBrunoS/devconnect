@@ -1,0 +1,130 @@
+.DialogOverlay {
+  background-color: var(--gray-900);
+  opacity: 0.7;
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.DialogContent {
+  background-color: var(--gray-700);
+  border-radius: 8px;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 450px;
+  max-height: 85vh;
+  padding: 1.5rem;
+  animation: contentShow 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.DialogContent:focus {
+  outline: none;
+}
+
+.DialogDescription {
+  margin: 0.625rem 0 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.SaveButton {
+  display: block;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  margin-left: auto;
+  border-radius: 8px;
+  border: 0;
+  font-weight: bold;
+  transition: background-color 0.1s;
+}
+
+.EditButton {
+  border: 1px solid var(--brand-500);
+  color: var(--brand-500);
+}
+.EditButton:hover {
+  background-color: var(--brand-500);
+  color: var(--white);
+}
+
+.SaveButton {
+  background-color: var(--brand-500);
+  color: var(--white);
+}
+.SaveButton:hover {
+  background-color: var(--brand-300);
+}
+
+.IconButton {
+  font-family: inherit;
+  height: 2rem;
+  width: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-200);
+  background: transparent;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 2px;
+}
+
+.IconButton:hover {
+  color: var(--white);
+}
+
+.SaveButton,
+.IconButton {
+  cursor: pointer;
+  border: 0;
+}
+
+.Fieldset {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  border: 0;
+}
+
+.Label {
+  width: 5rem;
+  text-align: right;
+}
+
+.Input {
+  width: 100%;
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0 0.625rem;
+  line-height: 1;
+  height: 2rem;
+  border: 0;
+  color: var(--gray-200);
+  background-color: var(--gray-800);
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

@@ -2,32 +2,39 @@
 
 > This project is intended to be a template for social media apps using Next.js. Use it to learn or to fit your own needs.
 
-**Technologies used:**
+## Technologies used
 
 - Typescript
 - React
 - Next.js
+- Prisma
 - NextAuth
 - SWR & Axios
-- Prisma
+- RadixUI
 
 ---
 
 ## Live Demo
 
-You can see a live version of this app [here](https://devconnect-mbrunos.vercel.app/)
+You can see a live version of this app [here](https://devconnect.mbrunos.dev/)
 
 ![DevConnect screenshot](src/assets/screen.png "Screenshot of the app")
 
-## Usage
+## Running the project
 
-After cloning the repository, install the dependencies:
+Clone the repository:
 
 ```
-yarn
+git clone https://github.com/MBrunoS/devconnect.git
 ```
 
-Then, choose your database provider, update `prisma/schema.prisma` to use the provider you want, and delete the migrations folder. Or if you want to use SQLite, don't change anything there.
+Install the dependencies:
+
+```
+yarn install
+```
+
+Then, update `prisma/schema.prisma` to use the provider you choose, and delete the `migrations` folder. Or if you want to use SQLite, you just have to create `dev.db` file.
 
 Rename the `.env` file to `.env.local` and update the keys:
 

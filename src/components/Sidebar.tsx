@@ -1,4 +1,4 @@
-import { PencilLine, SignOut } from "phosphor-react";
+import { SignOut } from "phosphor-react";
 import { Avatar } from "./Avatar";
 import { signOut } from "next-auth/react";
 import { useContext } from "react";
@@ -6,6 +6,7 @@ import { UserContext } from "../context/UserContext";
 
 import styles from "./Sidebar.module.css";
 import { Loading } from "./Loading";
+import { EditProfile } from "./EditProfile";
 
 export function Sidebar() {
   const { user } = useContext(UserContext);
@@ -25,10 +26,7 @@ export function Sidebar() {
       </div>
 
       <footer>
-        <button className={styles.editProfileBtn}>
-          <PencilLine size={20} />
-          Edit your profile
-        </button>
+        <EditProfile />
 
         <button onClick={() => signOut()} className={styles.signOutBtn}>
           <SignOut size={20} /> Sign Out
